@@ -1,0 +1,19 @@
+create table usuario(
+                                            -> NoControl int key not null,
+                                            -> nombre varchar(100) not null,
+                                            -> contrasena varchar(100) not null,
+                                            -> nacimiento date,
+                                            -> avatar varchar(200),
+                                            -> sexo varchar(100),
+                                            -> fecha_reg datetime not null,
+                                            -> carrera varchar(50));
+CREATE TABLE publicaciones (
+  id_pub int key auto_increment,
+  NoControl int not null,
+  fecha datetime,
+  contenido text not null,
+  comentarios int ,
+  likes int,
+  foreign key(NoControl) references usuario(NoControl) on delete restrict 
+  on update cascade
+);
